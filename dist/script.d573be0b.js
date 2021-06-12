@@ -118,6 +118,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/script.js":[function(require,module,exports) {
+// ---------------scroll speed-------------
+//-------------------------------------
 function checkScroll() {
   if ($(window).scrollTop() >= 300) {
     $('.navbar').addClass('solid');
@@ -134,6 +136,12 @@ $(document).ready(function () {
       $('nav.navbar').toggleClass('solid-toggle');
     }
   });
+}); // hiding title when scroll
+
+$(document).ready(function () {
+  $(window).scroll(function () {
+    $('.title').css('opacity', 1 - $(window).scrollTop() / 200);
+  });
 }); // remove attributes based on screen size
 
 $(document).on('click', 'a[href^="#"]', function (event) {
@@ -145,7 +153,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
   }, 400);
   $('html, body').animate({
     scrollTop: $($.attr(this, 'href')).offset().top
-  }, 2000);
+  }, 0); //scroll speed
 }); // -------------LIGHTBOX IMAGE GALLARY--------------
 
 $(document).ready(function () {
@@ -339,7 +347,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39131" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36389" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

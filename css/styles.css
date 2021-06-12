@@ -13,6 +13,7 @@ body{
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
+ 
 #home {
     background-image: url('../img/hero.jpeg');
     height: 100vh;

@@ -1,3 +1,9 @@
+// ---------------scroll speed-------------
+
+
+//-------------------------------------
+
+
 
 function checkScroll(){
     if($(window).scrollTop() >= 300){
@@ -18,6 +24,14 @@ $(document).ready(function(){
     
 });
 
+// hiding title when scroll
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+        $('.title').css('opacity', 1 - $(window).scrollTop() / 200);
+    });
+});
+
 // remove attributes based on screen size
 
 $(document).on('click','a[href^="#"]', function(event){
@@ -27,13 +41,11 @@ $(document).on('click','a[href^="#"]', function(event){
 
     setTimeout(function(){
         $('nav.navbar').removeClass('solid-toggle');
-    },400);
-
-    
+    },400);    
 
     $('html, body').animate({
         scrollTop:$($.attr(this,'href')).offset().top
-    },2000);
+    },0);//scroll speed
 });
 
 // -------------LIGHTBOX IMAGE GALLARY--------------
